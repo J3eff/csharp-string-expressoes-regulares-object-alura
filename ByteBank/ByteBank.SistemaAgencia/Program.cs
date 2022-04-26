@@ -9,9 +9,7 @@ namespace ByteBank.SistemaAgencia
         {
             // pagina?argumentos
             // 012345678
-
-            ExtratorValorDeArgumentosURL extrator = new ExtratorValorDeArgumentosURL(null);
-
+        
             // valor imutavel
             string url = "pagina?moedaOrigem=real&moedaDestino=dolar";
 
