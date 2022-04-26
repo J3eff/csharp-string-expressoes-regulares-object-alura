@@ -7,15 +7,25 @@ namespace ByteBank.SistemaAgencia
     {
         static void Main(string[] args)
         {
-           // valor imutavel
-           string url = "pagina?argumentos";
-                    
+            // pagina?argumentos
+            // 012345678
+
+            ExtratorValorDeArgumentosURL extrator = new ExtratorValorDeArgumentosURL(null);
+
+            // valor imutavel
+            string url = "pagina?moedaOrigem=real&moedaDestino=dolar";
+
+            int indiceInterrogacao = url.IndexOf('?');
+
+            Console.WriteLine(indiceInterrogacao);
+
             Console.WriteLine(url);
-            string argumentos = url.Substring(7);
+            string argumentos = url.Substring(indiceInterrogacao + 1);
             Console.WriteLine(argumentos);
+                                    
 
             Console.ReadLine();
         }
-       
+
     }
 }
