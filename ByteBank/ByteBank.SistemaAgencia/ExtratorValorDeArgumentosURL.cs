@@ -35,8 +35,6 @@ namespace ByteBank.SistemaAgencia
                 return resultado;
 
             return resultado.Remove(indiceEComercial);
-
-            //int indiceParametro = _argumentos.IndexOf
         }
 
     }

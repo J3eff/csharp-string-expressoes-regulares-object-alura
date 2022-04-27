@@ -7,6 +7,24 @@ namespace ByteBank.SistemaAgencia
     {
         static void Main(string[] args)
         {
+            string urlTest = "https://www.bytebank.com/cambio";
+            int indiceByteBank = urlTest.IndexOf("https://www.bytebank.com/");
+
+            // Olá, meu nome é Guilherme e você pode entrar em contato comigo
+            // através do numero 8457-4456!
+
+            // Meu nome é Guilherme, me ligue em 4784-4546
+
+            Console.WriteLine(urlTest.StartsWith("https://www.bytebank.com"));
+            Console.WriteLine(urlTest.EndsWith("cambio/"));
+
+            Console.WriteLine(urlTest.Contains("bytebank"));
+
+            Console.ReadLine();
+
+            // pagina?argumento
+            // 012345678
+
             //moedaOrigem = real & moedaDestino = dolar
 
             string urlParametros = "http://www.bytebank.com/combio?moedaOrigem=real&moedaDestino=dolar&valor=1500";
