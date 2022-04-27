@@ -12,8 +12,7 @@ namespace ByteBank.SistemaAgencia
         {
             if(string.IsNullOrEmpty(url))
                 throw new ArgumentNullException(nameof(url));
-
-            
+                        
             int indiceInterrogacao = url.IndexOf('?');
             _argumentos = url.Substring(indiceInterrogacao + 1);
 
@@ -26,7 +25,13 @@ namespace ByteBank.SistemaAgencia
             string termo = nomeParametro + "=";
             int indiceTermo = _argumentos.IndexOf(termo);
 
-            return _argumentos.Substring(indiceTermo + termo.Length);
+            string resultado = _argumentos.Substring(indiceTermo + termo.Length);
+            int indiceEComercial = resultado.IndexOf('&');
+
+            if (indiceEComercial == -1)
+                return resultado;
+
+            return resultado.Remove(indiceEComercial);
 
             //int indiceParametro = _argumentos.IndexOf
         }

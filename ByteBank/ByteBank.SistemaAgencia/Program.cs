@@ -7,21 +7,35 @@ namespace ByteBank.SistemaAgencia
     {
         static void Main(string[] args)
         {
-            string urlParametros = "http://www.bytebank.com/combio?moedaOrigem=real&moedaDestino=dolar";
+            //moedaOrigem = real & moedaDestino = dolar
+
+            string urlParametros = "http://www.bytebank.com/combio?moedaOrigem=real&moedaDestino=dolar&valor=1500";
             ExtratorValorDeArgumentosURL extrator = new ExtratorValorDeArgumentosURL(urlParametros);
 
-            string valor = extrator.GetValor("moedaOrigem");
-            Console.WriteLine("Valor de moedaOrigem: " + valor);
+            string valorMoedaOrigem = extrator.GetValor("moedaOrigem");
+            Console.WriteLine("Valor de moedaOrigem: " + valorMoedaOrigem);
+
+            string valorMoedaDestino = extrator.GetValor("moedaDestino");
+            Console.WriteLine("Valor de moedaDestino: " + valorMoedaDestino);
+
+            Console.WriteLine(extrator.GetValor("valor"));
+
             Console.ReadLine();
 
-            //moedaOrigem=real&moedaDestino=dolar
+            // Testando o método remove
+            string testeRemocao = "primeiraParte&parteParRemover";
+            int indiceEComercial = testeRemocao.IndexOf('&');
+            Console.WriteLine(testeRemocao.Remove(indiceEComercial, 4));
+            Console.ReadLine();           
 
+            
+            // <nome>=<valor>
             string palavra = "moedaOrigem=real&moedaDestino=dolar";
             string nomeArgumento = "moedaDestino=";
 
             int indice = palavra.IndexOf(nomeArgumento);
-            Console.WriteLine(indice);
-
+            Console.WriteLine(indice);                  
+                                                        
             Console.WriteLine("Tamanho da string nomeArgumento: " + nomeArgumento.Length);
 
             Console.WriteLine(palavra);
