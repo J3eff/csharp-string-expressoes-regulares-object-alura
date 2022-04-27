@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using Humanizer;
 
 namespace ByteBank.SistemaAgencia
@@ -7,13 +8,43 @@ namespace ByteBank.SistemaAgencia
     {
         static void Main(string[] args)
         {
-            string urlTest = "https://www.bytebank.com/cambio";
-            int indiceByteBank = urlTest.IndexOf("https://www.bytebank.com/");
-
             // Olá, meu nome é Guilherme e você pode entrar em contato comigo
             // através do numero 8457-4456!
 
             // Meu nome é Guilherme, me ligue em 4784-4546
+
+            string padrao = "[0123456789][0123456789][0123456789][0123456789][-][0123456789][0123456789][0123456789][0123456789]";
+            string textoDeTeste = "Meu nome é Guilherme, me ligue em 4784-4546";
+            
+            Match resultado = Regex.Match(textoDeTeste, padrao);
+
+            Console.WriteLine(resultado.Value);
+            Console.ReadLine();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            string urlTest = "https://www.bytebank.com/cambio";
+            int indiceByteBank = urlTest.IndexOf("https://www.bytebank.com/");
 
             Console.WriteLine(urlTest.StartsWith("https://www.bytebank.com"));
             Console.WriteLine(urlTest.EndsWith("cambio/"));
