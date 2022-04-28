@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Text.RegularExpressions;
+using ByteBank.Modelos;
+using ByteBank.Modelos.Funcionarios;
 using Humanizer;
 
 namespace ByteBank.SistemaAgencia
@@ -7,6 +9,22 @@ namespace ByteBank.SistemaAgencia
     class Program
     {
         static void Main(string[] args)
+        {
+            Console.WriteLine("Olá, mundo!");
+            Console.WriteLine(123);
+            Console.WriteLine(10.5);
+            Console.WriteLine(true);
+
+            object conta = new ContaCorrente(456, 687876);
+            object desenvolvedor = new Desenvolvedor("47136322871");
+
+
+            Console.WriteLine(conta);
+
+            Console.ReadLine();
+        }
+
+        static void TestaString()
         {
             // Olá, meu nome é Guilherme e você pode entrar em contato comigo
             // através do numero 8457-4456!
@@ -24,20 +42,11 @@ namespace ByteBank.SistemaAgencia
             // 879546120-20
 
             string textoDeTeste = "Meu nome é Guilherme, me ligue em 98871-5456";
-            
+
             Match resultado = Regex.Match(textoDeTeste, padrao);
 
             Console.WriteLine(resultado.Value);
             Console.ReadLine();
-
-
-
-
-
-
-
-
-
 
             string urlTest = "https://www.bytebank.com/cambio";
             int indiceByteBank = urlTest.IndexOf("https://www.bytebank.com/");
@@ -82,21 +91,20 @@ namespace ByteBank.SistemaAgencia
 
             Console.WriteLine(mensagemOrigem.IndexOf(termoBusca));
             Console.ReadLine();
-                       
+
             // Testando o método remove
             string testeRemocao = "primeiraParte&parteParRemover";
             int indiceEComercial = testeRemocao.IndexOf('&');
             Console.WriteLine(testeRemocao.Remove(indiceEComercial, 4));
-            Console.ReadLine();           
+            Console.ReadLine();
 
-            
             // <nome>=<valor>
             string palavra = "moedaOrigem=real&moedaDestino=dolar";
             string nomeArgumento = "moedaDestino=";
 
             int indice = palavra.IndexOf(nomeArgumento);
-            Console.WriteLine(indice);                  
-                                                        
+            Console.WriteLine(indice);
+
             Console.WriteLine("Tamanho da string nomeArgumento: " + nomeArgumento.Length);
 
             Console.WriteLine(palavra);
@@ -113,9 +121,6 @@ namespace ByteBank.SistemaAgencia
             Console.WriteLine(url);
             string argumentos = url.Substring(indiceInterrogacao);
             Console.WriteLine(argumentos);
-                                    
-
-            Console.ReadLine();
         }
 
     }
